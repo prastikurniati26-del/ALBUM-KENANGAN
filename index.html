@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salam Perpisahan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Melangkah Lebih Jauh, Kawan!</h1>
+        <p class="tagline">Terima kasih sudah memberikan warna dalam keseharian kita.</p>
+
+        <img src="foto-temanmu.jpg" alt="Foto Teman" class="foto">
+
+        <div class="pesan">
+    <h2>Pesan untukmu:</h2>
+    <ul id="daftar-pesan">
+        <li>Kami akan merindukanmu. Dalam batas tertentu ya.</li>
+    </ul>
+
+    <div class="input-pesan">
+        <input type="text" id="inputNama" placeholder="Nama kamu..." />
+        <input type="text" id="inputPesan" placeholder="Tulis pesan lucu..." />
+        <button onclick="tambahPesan()">Kirim</button>
+    </div>
+<div id="messageList" style="margin-top: 30px; text-align:center;">
+    <h3>Pesan dari Teman-teman:</h3>
+    <ul id="messages" style="list-style: none; padding: 0;"></ul>
+</div>
+
+        <audio id="bgm" autoplay loop>
+            <source src="musik.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+<script>
+    const nameInput = document.querySelector('input[placeholder="Nama kamu..."]');
+    const messageInput = document.querySelector('input[placeholder="Tulis pesan lucu..."]');
+    const messagesList = document.getElementById('messages');
+    const sendButton = document.querySelector('button');
+
+    sendButton.addEventListener('click', function() {
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if(name && message) {
+            const li = document.createElement('li');
+            li.textContent = name + " : " + message;
+            messagesList.appendChild(li);
+
+            nameInput.value = "";
+            messageInput.value = "";
+        }
+    });
+</script>
+</body>
+</html>
